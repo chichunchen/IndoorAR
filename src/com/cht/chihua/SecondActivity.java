@@ -23,6 +23,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.cht.chihua.R;
+import com.cht.chihua.R.id;
+import com.cht.chihua.R.layout;
+import com.cht.chihua.R.raw;
 import com.cht.lab.ar.SPARDisplay;
 import com.cht.lab.ar.SPCameraManager;
 import com.cht.lab.ar.SPDisplayHelper;
@@ -58,10 +62,10 @@ public class SecondActivity extends Activity implements SPCameraManager.Portrait
 
 		mDisplayHelper = new SPDisplayHelper(this, ((MyApplication) getApplication()).getArDisplayConfiguration());
 
-		// ¦bsetContentView¤§«e°õ¦æ¡A¥Î¥Hªì©l¤Æcamera¤Î¥ş¿Ã¹õªºª¬ºA
+		// åœ¨setContentViewä¹‹å‰åŸ·è¡Œï¼Œç”¨ä»¥åˆå§‹åŒ–cameraåŠå…¨è¢å¹•çš„ç‹€æ…‹
 		mDisplayHelper.initBeforeSetContentView();
 
-		// ¦bportrait¼Ò¦¡ÅıUIªºfill_parent§¹¦¨§@¥Î
+		// åœ¨portraitæ¨¡å¼è®“UIçš„fill_parentå®Œæˆä½œç”¨
 		mDisplayHelper.changeToPortrait();
 
 		setContentView(R.layout.ar_main);
@@ -70,23 +74,23 @@ public class SecondActivity extends Activity implements SPCameraManager.Portrait
 
 		mPortView = findViewById(R.id.ar_port);
 
-		// ³]©w¨Æ¥óªº¦^¶Ç³B²zªº¹ê§@ª«¥ó
+		// è¨­å®šäº‹ä»¶çš„å›å‚³è™•ç†çš„å¯¦ä½œç‰©ä»¶
 		mDisplayHelper.setEventCallback(this);
-		// ³]©wcamera¶}±Ò¥¢±Ñªº¦^¶Ç³B²z¹ê§@ª«¥ó
+		// è¨­å®šcameraé–‹å•Ÿå¤±æ•—çš„å›å‚³è™•ç†å¯¦ä½œç‰©ä»¶
 		mDisplayHelper.setPortraitDisplayCallback(this);
 
-		// ªì©l¤ÆAR©Ò»İªº¸ê®Æ
+		// åˆå§‹åŒ–ARæ‰€éœ€çš„è³‡æ–™
 //		mUserPoint = new SPLatLng(25.033692, 121.545202).toGeoPoint();
 		mUserPoint = new SPLatLng(24.953711, 121.165493).toGeoPoint();
 		
 //		try {
 //			mResult = new JSONArray(
-//				"[{\"u\":\"10459\",\"ad\":\"®ç¶é¿¤Æ[­µ¶m¤j´ò¸ô¤G¬q342¸¹\",\"u1\":\"«CªL¥ğ¶¢¹A³õ\",\"c\":\"3\",\"la\":\"24.995533\",\"lo\":\"121.133297\",\"d\":5412,\"aa\":325.28},{\"u\":\"1048271\",\"ad\":\"®ç¶é¿¤·s«Î¶m¦ZÉÜ§ø3¾F48-3¸¹\",\"u1\":\"1&0¥ğ¶¢¹A³õ\",\"c\":\"3\",\"la\":\"24.907846\",\"lo\":\"121.183362\",\"d\":5620,\"aa\":159.32},{\"u\":\"1067192\",\"ad\":\"®ç¶é¿¤·¨±öÂí¤¤¤s¥_¸ô¤@¬q21«Ñ1 ¸¹\",\"u1\":\"¶®»D¾y¤O³ÕÄıÀ]\",\"c\":\"3\",\"la\":\"24.908611\",\"lo\":\"121.141388\",\"d\":5648,\"aa\":203.54},{\"u\":\"1067097\",\"ad\":\"®ç¶é¿¤Æ[­µ¶m¤jÔ³§ø¤j´ò¸ô¤G¬q131¸¹\",\"u1\":\"Áé®a¹A³õ\",\"c\":\"3\",\"la\":\"24.997777\",\"lo\":\"121.132055\",\"d\":5688,\"aa\":325.67},{\"u\":\"1050272\",\"ad\":\"®ç¶é¿¤Æ[­µ¶m¤jÔ³§ø¤j´ò¸ô¤G¬q131¸¹\",\"u1\":\"Áé®aªá¶é¥ğ¶¢¹A³õ\",\"c\":\"3\",\"la\":\"24.997802\",\"lo\":\"121.131929\",\"d\":5698,\"aa\":325.58},{\"u\":\"1048238\",\"ad\":\"®ç¶é¿¤·¨±öÂí\",\"u1\":\"·¨±öÂí¶Q¤s¤½¶é\",\"c\":\"3\",\"la\":\"24.905270\",\"lo\":\"121.148790\",\"d\":5748,\"aa\":195.2},{\"u\":\"106945\",\"ad\":\"®ç¶é¿¤Æ[­µ¶m¤jÔ³§ø5¾F175¸¹\",\"u1\":\"ªL®a¥j­í¥ğ¶¢¹A³õ\",\"c\":\"3\",\"la\":\"24.998926\",\"lo\":\"121.129149\",\"d\":5961,\"aa\":324.03},{\"u\":\"1067098\",\"ad\":\"®ç¶é¿¤Æ[­µ¶m¤jÔ³§ø¤j´ò¸ô¤G¬q131-1¸¹\",\"u1\":\"«CªL¹A³õ\",\"c\":\"3\",\"la\":\"25.001833\",\"lo\":\"121.130944\",\"d\":6125,\"aa\":327.17},{\"u\":\"1023226\",\"ad\":\"®ç¶é¿¤Æ[­µ¶m¤jÔ³§ø184¸¹\",\"u1\":\"±d²ø½¬ªá¥ğ¶¢¹A³õ\",\"c\":\"3\",\"la\":\"25.000368999999999\",\"lo\":\"121.12837\",\"d\":6137,\"aa\":324.31},{\"u\":\"1067117\",\"ad\":\"®ç¶é¿¤¤¤Ãc¥«»â¯è¥_¸ô¡B¤å¿³¸ô¤f\",\"u1\":\"®ç¶é°ê»Ú´Î²y³õ\",\"c\":\"3\",\"la\":\"24.999444\",\"lo\":\"121.200861\",\"d\":6155,\"aa\":37.39},{\"u\":\"1021320\",\"ad\":\"®ç¶é¿¤·s«Î¶m·s«Î§ø¤¤¥¿¸ô110«Ñ¤º\",\"u1\":\"­S«¸¥j­í\",\"c\":\"3\",\"la\":\"24.973969\",\"lo\":\"121.104391\",\"d\":6342,\"aa\":288.93},{\"u\":\"1067089\",\"ad\":\"®ç¶é¿¤·s«Î¶m¤¤¥¿¸ô110«Ñ\",\"u1\":\"¤ô«Ñ´²¨B¹D\",\"c\":\"3\",\"la\":\"24.975916\",\"lo\":\"121.104805\",\"d\":6376,\"aa\":290.89}]");
+//				"[{\"u\":\"10459\",\"ad\":\"æ¡ƒåœ’ç¸£è§€éŸ³é„‰å¤§æ¹–è·¯äºŒæ®µ342è™Ÿ\",\"u1\":\"é’æ—ä¼‘é–’è¾²å ´\",\"c\":\"3\",\"la\":\"24.995533\",\"lo\":\"121.133297\",\"d\":5412,\"aa\":325.28},{\"u\":\"1048271\",\"ad\":\"æ¡ƒåœ’ç¸£æ¥Šæ¢…é®ä¸­å±±åŒ—è·¯ä¸€æ®µ21å··1è™Ÿ\",\"u1\":\"é›…é›¯é­…åŠ›åšè¦½é¤¨\",\"c\":\"3\",\"la\":\"24.907846\",\"lo\":\"121.183362\",\"d\":5620,\"aa\":159.32},{\"u\":\"1067192\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½_ï¿½ï¿½ï¿½@ï¿½q21ï¿½ï¿½1 ï¿½ï¿½\",\"u1\":\"ï¿½ï¿½ï¿½Dï¿½yï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½]\",\"c\":\"3\",\"la\":\"24.908611\",\"lo\":\"121.141388\",\"d\":5648,\"aa\":203.54},{\"u\":\"1067097\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½[ï¿½ï¿½ï¿½mï¿½jÔ³ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½Gï¿½q131ï¿½ï¿½\",\"u1\":\"ï¿½ï¿½aï¿½Aï¿½ï¿½\",\"c\":\"3\",\"la\":\"24.997777\",\"lo\":\"121.132055\",\"d\":5688,\"aa\":325.67},{\"u\":\"1050272\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½[ï¿½ï¿½ï¿½mï¿½jÔ³ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½Gï¿½q131ï¿½ï¿½\",\"u1\":\"ï¿½ï¿½aï¿½ï¿½ï¿½ğ¶¢¹Aï¿½ï¿½\",\"c\":\"3\",\"la\":\"24.997802\",\"lo\":\"121.131929\",\"d\":5698,\"aa\":325.58},{\"u\":\"1048238\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\",\"u1\":\"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½sï¿½ï¿½ï¿½ï¿½\",\"c\":\"3\",\"la\":\"24.905270\",\"lo\":\"121.148790\",\"d\":5748,\"aa\":195.2},{\"u\":\"106945\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½[ï¿½ï¿½ï¿½mï¿½jÔ³ï¿½ï¿½5ï¿½F175ï¿½ï¿½\",\"u1\":\"ï¿½Lï¿½aï¿½jï¿½ï¿½ğ¶¢¹Aï¿½ï¿½\",\"c\":\"3\",\"la\":\"24.998926\",\"lo\":\"121.129149\",\"d\":5961,\"aa\":324.03},{\"u\":\"1067098\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½[ï¿½ï¿½ï¿½mï¿½jÔ³ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½Gï¿½q131-1ï¿½ï¿½\",\"u1\":\"ï¿½Cï¿½Lï¿½Aï¿½ï¿½\",\"c\":\"3\",\"la\":\"25.001833\",\"lo\":\"121.130944\",\"d\":6125,\"aa\":327.17},{\"u\":\"1023226\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½[ï¿½ï¿½ï¿½mï¿½jÔ³ï¿½ï¿½184ï¿½ï¿½\",\"u1\":\"ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ğ¶¢¹Aï¿½ï¿½\",\"c\":\"3\",\"la\":\"25.000368999999999\",\"lo\":\"121.12837\",\"d\":6137,\"aa\":324.31},{\"u\":\"1067117\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½ï¿½ï¿½cï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Bï¿½å¿³ï¿½ï¿½ï¿½f\",\"u1\":\"ï¿½ï¿½ï¿½ï¿½Ú´Î²yï¿½ï¿½\",\"c\":\"3\",\"la\":\"24.999444\",\"lo\":\"121.200861\",\"d\":6155,\"aa\":37.39},{\"u\":\"1021320\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½sï¿½Î¶mï¿½sï¿½Î§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½110ï¿½Ñ¤ï¿½\",\"u1\":\"ï¿½Sï¿½ï¿½ï¿½jï¿½ï¿½\",\"c\":\"3\",\"la\":\"24.973969\",\"lo\":\"121.104391\",\"d\":6342,\"aa\":288.93},{\"u\":\"1067089\",\"ad\":\"ï¿½ï¿½é¿¤ï¿½sï¿½Î¶mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½110ï¿½ï¿½\",\"u1\":\"ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½Bï¿½D\",\"c\":\"3\",\"la\":\"24.975916\",\"lo\":\"121.104805\",\"d\":6376,\"aa\":290.89}]");
 //		} catch (JSONException e) {
 //			mResult = null;
 //		}
 
-		// Åª¨ú¹w¦sªº´ú¸Õ¸ê®Æ
+		// 
 		JSONObject result;
 		try {
 			result = new JSONObject(new String(SPFile.readData(getResources().openRawResource(R.raw.test_data))));
@@ -163,12 +167,12 @@ public class SecondActivity extends Activity implements SPCameraManager.Portrait
 		}
 		super.onResume();
 
-		// ±Ò°Ê¤è¦ì¨¤ºÊÅ¥³B²z
+		// å•Ÿå‹•æ–¹ä½è§’ç›£è½è™•ç†
 		mDisplayHelper.startOrientationListener();
-		// ±Ò°Ê©w¦ìºÊÅ¥³B²z
+		// å•Ÿå‹•å®šä½ç›£è½è™•ç†å™¨
 //		mDisplayHelper.startLocationListener();
 		control = true;
-		// ±N¤w¸gªì©l¤Æ§¹¦¨ªºportrait UI§ï¬°landscape¥H«K¶}±Òcamera
+		// å°‡å·²ç¶“åˆå§‹åŒ–å®Œæˆçš„portrait UIè©²ç‚ºlandscapeä»¥ä¾¿é–‹å•Ÿcamera
 		mDisplayHelper.changeToLandscape();
 	}
 
@@ -178,12 +182,12 @@ public class SecondActivity extends Activity implements SPCameraManager.Portrait
 			Log.d(TAG, "onPause");
 		}
 		super.onPause();
-		// Ãö³¬¤è¦ì¨¤ºÊÅ¥³B²z
+		// é—œé–‰æ–¹ä½è§’ç›£è½è™•ç†
 		mDisplayHelper.stopOrientationListener();
-		// Ãö³¬©w¦ìºÊÅ¥³B²z
+		// é—œé–‰å®šä½ç›£è½è™•ç†å™¨
 //		mDisplayHelper.stopLocationListener();
 		control = false;
-		// Ãö³¬·Ó¬Û¾÷¸ê·½
+		// é—œé–‰ç…§ç›¸æ©Ÿè³‡æº
 		mDisplayHelper.stopCamera();
 	}
 
@@ -192,8 +196,8 @@ public class SecondActivity extends Activity implements SPCameraManager.Portrait
 		if (LOCAL_LOGD) {
 			Log.d(TAG, "onPortraitDisplayFail");
 		}
-		// ¥u·|µo¥Í¦b²Ä¤@¦¸¹Á¸Õportrait¼Ò¦¡¶}±Òcamera¥¢±Ñ«á©I¥s
-		// ³o¸Ì§ï¥Îlandscape¼Ò¦¡¶}±Òcamera, ª`·NUI¦P®É¤]·|ÅÜ¬°landscape, ¦ı·|¦Û°ÊÂà¸m¬°¬İ¦üportraitªºUI
+		// åªæœƒç™¼ç”Ÿåœ¨ç¬¬ä¸€æ¬¡å˜—è©¦portraitæ¨¡å¼é–‹å•Ÿcameraå¤±æ•—å¾Œå‘¼å«
+		// é€™è£æ”¹ç”¨landscapeæ¨¡å¼é–‹å•Ÿcamera, æ³¨æ„UIåŒæ™‚ä¹Ÿæœƒè®Šç‚ºlandscape, ä½†æœƒè‡ªå‹•è½‰ç½®ç‚ºçœ‹ä¼¼portraitçš„UI
 		mDisplayHelper.changeToLandscape();
 	}
 
@@ -206,7 +210,7 @@ public class SecondActivity extends Activity implements SPCameraManager.Portrait
 	 */
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		// Á×§K¦]portrait/landscape¤Á´«³y¦¨activityªºonCreate­«·srestart
+		// é¿å…å› portrait/landscapeåˆ‡æ›é€ æˆactivityçš„onCreateé‡æ–°restart
 		super.onConfigurationChanged(newConfig);
 	}
 

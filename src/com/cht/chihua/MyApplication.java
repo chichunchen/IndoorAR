@@ -74,11 +74,11 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		// ªì©l¤ÆAR¤¸¥óªºÀô¹ÒÅÜ¼Æ, «ØÄ³¦bµ{¦¡±MÄİªºApplication¤¤³]©w
+		// åˆå§‹åŒ–ARå…ƒä»¶çš„ç’°å¢ƒè®Šæ•¸ï¼Œå»ºè­°åœ¨åŸå¸‚æ‰€å±¬çš„Applicationè¨­å®š
 		SPEnv.init(this);
 
-		// ³]©w¹Á¸Õ¥Hportrait¤è¦¡¶}±Òcamera, ¥u¦b³Ì¶}©l¨Ï¥Îªºactivity¤¤©I¥s¤@¦¸
-		// ¤]¥i¥H¦bµ{¦¡±MÄİªºApplication¤¤³]©w
+		// è¨­å®šå˜—è©¦ä»¥portraitæ–¹å¼é–‹å•Ÿcameraï¼Œåªåœ¨æœ€é–‹å§‹ä½¿ç”¨çš„activityä¸­å‘¼å«ä¸€æ¬¡
+		// ä¹Ÿå¯ä»¥åœ¨ç¨‹å¼å°ˆå±¬çš„Applicationè¨­å®š
 		SPCameraManager.getInstance().setPortraitDisplay(true);
 	}
 

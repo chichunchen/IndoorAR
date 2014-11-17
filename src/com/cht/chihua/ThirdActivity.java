@@ -20,6 +20,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.cht.chihua.R;
+import com.cht.chihua.R.id;
+import com.cht.chihua.R.layout;
 import com.cht.lab.ar.SPARDisplay;
 import com.cht.lab.ar.SPCameraManager;
 import com.cht.lab.ar.SPDisplayHelper;
@@ -52,10 +55,10 @@ public class ThirdActivity extends Activity implements SPCameraManager.PortraitD
 
 		mDisplayHelper = new SPDisplayHelper(this, ((MyApplication) getApplication()).getArDisplayConfiguration());
 
-		// ¦bsetContentView¤§«e°õ¦æ¡A¥Î¥Hªì©l¤Æcamera¤Î¥ş¿Ã¹õªºª¬ºA
+		// åœ¨setContentViewä¹‹å‰åŸ·è¡Œï¼Œç”¨ä»¥åˆå§‹åŒ–cameraåŠå…¨è¢å¹•çš„ç‹€æ…‹
 		mDisplayHelper.initBeforeSetContentView();
 
-		// ¦bportrait¼Ò¦¡ÅıUIªºfill_parent§¹¦¨§@¥Î
+		// åœ¨portraitæ¨¡å¼è®“UIçš„fill_parentå®Œæˆä½œç”¨
 		mDisplayHelper.changeToPortrait();
 
 		setContentView(R.layout.ar_main);
@@ -64,17 +67,17 @@ public class ThirdActivity extends Activity implements SPCameraManager.PortraitD
 
 		mPortView = findViewById(R.id.ar_port);
 
-		// ³]©wcamera¶}±Ò¥¢±Ñªº¦^¶Ç³B²z¹ê§@ª«¥ó
+		// è¨­å®šcameraé–‹å•Ÿå¤±æ•—çš„å›å‚³è™•ç†å¯¦ä½œç‰©ä»¶
 		mDisplayHelper.setPortraitDisplayCallback(this);
 
-		// ªì©l¤ÆAR©Ò»İªº¸ê®Æ
+		// åˆå§‹åŒ–ARæ‰€éœ€çš„è³‡æ–™
 		mUserPoint = new SPLatLng(24.953711, 121.165493).toGeoPoint();
 
 		try {
 			Bundle bundle =this.getIntent().getExtras();
 			String JSONdata = bundle.getString("JSONdata");
 			mResult = new JSONArray("["+JSONdata+"]");
-//			mResult = new JSONArray("[{\"lo\":\"121.859164\",\"d\":\"-1\",\"u1\":\"°ò¶©¤s\",\"u\":\"1306d859ec7000001654\",\"la\":\"25.129018\",\"ad\":\"·s¥_¥«·çªÚ°Ï°ò¶©¤s\",\"aa\":\"-1\"}]");
+//			mResult = new JSONArray("[{\"lo\":\"121.859164\",\"d\":\"-1\",\"u1\":\"åŸºéš†å±±\",\"u\":\"1306d859ec7000001654\",\"la\":\"25.129018\",\"ad\":\"æ–°åŒ—å¸‚ç‘èŠ³å€åŸºéš†å±±\",\"aa\":\"-1\"}]");
 		} catch (JSONException e) {
 			mResult = null;
 		}
@@ -93,11 +96,11 @@ public class ThirdActivity extends Activity implements SPCameraManager.PortraitD
 		}
 		super.onResume();
 
-		// ±Ò°Ê¤è¦ì¨¤ºÊÅ¥³B²z
+		// å•Ÿå‹•æ–¹ä½è§’ç›£è½è™•ç† 
 		mDisplayHelper.startOrientationListener();
-		// ±Ò°Ê©w¦ìºÊÅ¥³B²z
+		// å•Ÿå‹•å®šä½ç›£è½è™•ç†
 		mDisplayHelper.startLocationListener();
-		// ±N¤w¸gªì©l¤Æ§¹¦¨ªºportrait UI§ï¬°landscape¥H«K¶}±Òcamera
+		// å°‡å·²ç¶“åˆå§‹åŒ–å®Œæˆçš„protrait UIæ”¹ç‚ºlandscapeä»¥ä¾¿é–‹å•Ÿcamera
 		mDisplayHelper.changeToLandscape();
 	}
 
@@ -107,11 +110,11 @@ public class ThirdActivity extends Activity implements SPCameraManager.PortraitD
 			Log.d(TAG, "onPause");
 		}
 		super.onPause();
-		// Ãö³¬¤è¦ì¨¤ºÊÅ¥³B²z
+		// é—œé–‰æ–¹ä½è§’ç›£è½è™•ç†
 		mDisplayHelper.stopOrientationListener();
-		// Ãö³¬©w¦ìºÊÅ¥³B²z
+		// é—œé–‰å®šä½ç›£è½è™•ç†
 		mDisplayHelper.stopLocationListener();
-		// Ãö³¬·Ó¬Û¾÷¸ê·½
+		// é—œé–‰ç…§ç›¸æ©Ÿè³‡æº
 		mDisplayHelper.stopCamera();
 	}
 
@@ -120,8 +123,8 @@ public class ThirdActivity extends Activity implements SPCameraManager.PortraitD
 		if (LOCAL_LOGD) {
 			Log.d(TAG, "onPortraitDisplayFail");
 		}
-		// ¥u·|µo¥Í¦b²Ä¤@¦¸¹Á¸Õportrait¼Ò¦¡¶}±Òcamera¥¢±Ñ«á©I¥s
-		// ³o¸Ì§ï¥Îlandscape¼Ò¦¡¶}±Òcamera, ª`·NUI¦P®É¤]·|ÅÜ¬°landscape, ¦ı·|¦Û°ÊÂà¸m¬°¬İ¦üportraitªºUI
+		// åªæœƒç™¼ç”Ÿåœ¨ç¬¬ä¸€æ¬¡å˜—è©¦portraitæ¨¡å¼é–‹å•Ÿcameraå¤±æ•—å¾Œå‘¼å«
+		// é€™è£æ”¹ç”¨landscapeæ¨¡å¼é–‹å•Ÿcameraï¼Œæ³¨æ„UIåŒæ™‚ä¹Ÿæœƒè®Šç‚ºlandscapeï¼Œä½†æœƒè‡ªå‹•è½‰è‡³ç‚ºçœ‹ä¼¼portraitçš„UI
 		mDisplayHelper.changeToLandscape();
 	}
 
@@ -134,7 +137,7 @@ public class ThirdActivity extends Activity implements SPCameraManager.PortraitD
 	 */
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		// Á×§K¦]portrait/landscape¤Á´«³y¦¨activityªºonCreate­«·srestart
+		// é¿å…å› portrait/landscapeåˆ‡æ›é€ æˆactivityçš„onCreateé‡æ–°restart
 		super.onConfigurationChanged(newConfig);
 	}
 
