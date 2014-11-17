@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+<!--
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:orientation="vertical">
+		<Button android:id="@+id/navi_btn" android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:text="Direction"
+			android:textStyle="bold" android:gravity="center"
+			android:textAppearance="?android:attr/textAppearance" />
+		<TextView android:id="@+id/text1" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:singleLine="false"
+			android:background="#990000ff" android:textColor="#fcd208"
+			android:text="@string/hello" />
+	</LinearLayout>
+ -->
+</FrameLayout>

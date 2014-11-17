@@ -1,0 +1,18 @@
+{
+    "authentication_apid": "no_need_when_debuggable_is_true",
+    "authentication_code": "no_need_when_debuggable_is_true",
+    "extra_point_over_frame_padding": 20,
+    "extra_point_not_shrink": true,
+    "enable_info_window_shrink": true,
+    "enable_info_window_pitch_move": false,
+    "enable_info_window_flip": true,
+    "enable_info_window_scatter": true,
+    "enable_info_window_hint": true,
+    "frame_display": {
+        "background": "",
+        "enable_page_control": true
+    },
+    "direction_display": {
+        "image": "default_pointer"
+    }
+}

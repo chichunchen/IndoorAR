@@ -1,0 +1,22 @@
+{
+    "android": {
+        "frame": "default_marker",
+        "logo": "",
+        "title": {
+            "x": "10",
+            "y": "1",
+            "width": "106",
+            "height": "26",
+            "fontsize": "15",
+            "fontcolor": "000000"
+        },
+        "distance": {
+            "x": "43",
+            "y": "24",
+            "width": "40",
+            "height": "20",
+            "fontsize": "12",
+            "fontcolor": "FFFFFF"
+        }
+    }
+}
