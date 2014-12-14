@@ -133,10 +133,23 @@ class: center, middle, inverse
 
 1. Research Purpose 
 
-2. dsfa
+2. Research Method 
 
-3. dsfa
-...
+3. Integrated Heterogeneous Network 
+    - Collect
+    - Analyze
+    - Compare
+    - Predict
+
+4. Experimental
+
+5. WebService
+
+6. IndoorAR
+
+7. Core Technology
+
+8. Prospect
 
 ---
 
@@ -152,7 +165,7 @@ class: center, middle, inverse
 
 ---
 
-# Accuracy
+# Research Method 
 
 - 首先，要解決定位精確度的問題
 
@@ -161,74 +174,196 @@ class: center, middle, inverse
 - Solution: 引入 跨異質網路行動定位 之技術
 
 ---
+name: IHN 
+class: center, middle, inverse
+## Integrated Heterogeneous Network
+---
+![Heterogenous Network Method](image/Heterogeneous_Network_Method.png)
+---
 
-# Integrated Heterogenous Networks 
+.left-column[
+  ## Collect
+]
+.right-column[
+### Collect Heterogenous Network Info
 
-- 收集異質網路資訊
-    - 紀錄時間
-    - 2G/3G, WIFI 之訊號強度 
+- Record current time
 
-- 分析資料進⾏行加權,並轉換為向量空間
-    - 將收集到之訊號強度表⽰示為向量集合,未偵測到訊號的基站設為極⼩小
-       值
-    - 訊號強度正規化
+- Cell ID 、WiFi訊號強度
+]
+---
 
-- Testing 
-    1. 新資料進入後,進⾏行上述步驟
-    2. 與資料庫比對,取得最相似k筆資訊
-    3. 依每筆資料向量距離進⾏行加權平均
+.left-column[
+  ## Collect
+  ## Analyze
+]
+
+.right-column[
+### 分析資料進行加權, 並轉換為向量空間
+
+- 將收集到之訊號強度表⽰示為向量集合,未偵測到訊號的基站設為極⼩小值
+
+- 訊號強度正規化
+    - 每種網路收集到的訊號強度最⼤大值和最⼩小值區間不相同
+    - 正規化後的訊號強度介於`0~1`之間
+]
 
 ---
 
+.left-column[
+  ## Collect
+  ## Analyze
+]
+
+.right-column[
+
+### 時間序列加權
+
+- 當下的訊號強度權重最⾼高,但也考量前複數個訊號強度集合進⾏行加權平均
+
+### 網路傳輸距離加權
+
+- 傳輸距離短的無線網路作為定位時,定位精準度⽐比較⾼高
+]
+
+---
+
+.left-column[
+  ## Collect
+  ## Analyze
+  ## Compare
+]
+
+.right-column[
+### 與歷史資料庫比對，取得最接近的k筆資料
+
+- 依基站識別碼、訊號強度、時間點之資料轉換所得的向量空間與歷史資料各個定位點的向量資料進⾏行比對
+
+- 取出最相似的k筆
+]
+
+---
+
+.left-column[
+  ## Collect
+  ## Analyze
+  ## Compare
+  ## Predict
+]
+
+.right-column[
+### 依每筆資料向量距離進⾏行加權平均,估計⽬目前位置
+
+- 將取出之最相似的k筆,依這k筆資料所 對應的經緯度座標進⾏行加權平均
+
+- 相似度越⾼高的資料,其權重越⾼高
+]
+---
+class: center, middle, inverse
 # Experimental
+---
 
-1. 到圖書館收data(如何收，圖書館櫃架經緯度地圖)
+# Book Geo Data
 
-2. 收集Cell, GPS, Sensor, wifi等資訊
+.left-column[
+## Book's Location 
+]
 
-3. Mobile Logger Demo 
+.right-column[
+尋找圖書館櫃架經緯度地圖
+
+![圖書館櫃架圖片](image/library-map.png)
+]
+
+???
+驗證
+
+---
+
+# Book Geo Data
+
+.left-column[
+## Book's Location 
+
+## Cell, WIFI INFO 
+]
+
+.right-column[
+貼各種Info的資料格式
+]
+---
+
+# Book Geo Data
+.left-column[
+## Book's Location 
+
+## Cell, WIFI INFO 
+
+## Mobile Logger
+]
+
+.right-column[
+
+- Collect 2G/3G, WIFI, GSensor, GPS data 
+
+- Thread
+
+- Demo 
 ```
 java -jar asm.jar
 choose android phone or adb
 ```
+.footnote[ https://github.com/chichunchen/MobileLogger ]
+]
+---
+# Book Geo Data
+.left-column[
+## Book's Location 
 
-.footnote[ https://github.com/adakoda/android-screen-monitor ]
+## Cell, WIFI INFO 
 
-3. 將收集到的資料使用演算法驗證 - A Ruby script
+## Mobile Logger
+
+## Algorithm
+]
 
 ---
 
 # WebService
 
-- 將演算法跑完的內容放入資料庫
+- Put result Data in Database
 
-- 此資料庫提供JSON Data 給Android APP
+- Render JSON code for client app
 
-.footnote[http://rubyonrails.org]
+.footnote[ http://rubyonrails.org ]
 ---
 
 # IndoorAR 
 
-- 抓資料庫中的JSON Data進行定位標示
+- Get Json Data from WebService
 
-- 取得權限：Camera, ACCESS_FINE_LOCATION
+- Permission: `Camera, ACCESS_FINE_LOCATION`
 
-- 動態導覽, 持續用一條thread對畫面方位的呈現進行更新
+- Dynamic Navigation
 
-- 排序尋找目標之距離 
+- Sort the Distance of Objects
 
-- Demo for MB10 
+- Demo `MB10 version` 
 
 .footnote[ https://github.com/chichunchen/IndoorAR ]
+???
+Get Json Data from WebService: 抓資料庫中的JSON Data進行定位標示
+
+Dynamic Navigation: 持續用一條thread對畫面方位的呈現進行更新
+
 ---
 
 # Core Technology 
-
 - Mobile Positioning System and Method Based on Integrated Heterogeneous Network
 
-- WebService: Ruby on Rails(Rest API)
-
 - Client: Android(Native)
+
+- WebService: Ruby on Rails(Rest API)
 
 - Version Control : Git
 
@@ -236,6 +371,8 @@ choose android phone or adb
 
 # Prospect
 - 將此應用擴展至各大商場和展場,將更能推廣文創活動並取得商機。
+
+- 圖片 and 例子
 
 ---
 name: inverse
