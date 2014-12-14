@@ -16,14 +16,17 @@
             margin-bottom: 0;
           }
           h1 { font-size: 4em; }
-          h2 { font-size: 2em; }
-          h3 { font-size: 1.6em; }
+          h2 { font-size: 3em; }
+          h3 { font-size: 2em; }
+          h4 { font-size: 1.6em; }
           .footnote {
             position: absolute;
             bottom: 3em;
           }
           li p { line-height: 1.25em; }
           .red { color: #fa0000; }
+          .blue { color: #3366FF }
+          .green { color: #009999 }
           .large { font-size: 2em; }
           a, a > code {
             color: rgb(249, 38, 114);
@@ -119,145 +122,243 @@
       <textarea id="source">
 name: inverse
 class: center, middle, inverse
-## 智慧圖書館導覽服務 
+## Intelligent Library Guidance Services 
 
 ![封面](http://1.bp.blogspot.com/_Q7zxsD2iUvA/TLEfcFDdUcI/AAAAAAAAAB8/3snaQczQDOg/s1600/augmented+reality+library.png)
 
-### 成員：陳其駿
+#### Member: Chi-Chen Chen 
 
-### 指導教授：羅濟群、陳志華
+#### Adviser: Professor Chi-Chun Lo, PostDoctor Chi-Hua Chen
+
+##### NCTU IFM Final Project .red[2014] #####
 
 ---
 
-# Preface
+Outline
+=======
 
-1. Research Purpose 
+- Motivation
 
-2. Research Method 
+- Purpose 
 
-3. Integrated Heterogeneous Network 
+- Research Method 
+
+- Integrated Heterogeneous Network 
     - Collect
     - Analyze
     - Compare
     - Predict
 
-4. Experimental
+- Experimental
+    - Book Geo Data
+    - WebService
+    - IndoorAR
 
-5. WebService
+- Core Technology
 
-6. IndoorAR
-
-7. Core Technology
-
-8. Prospect
+- Prospect
 
 ---
 
-# Research Purpose
+# Motivation
 
-- 找書不好找，應用AR技術可以更快的找到想要的書籍，並且提供進階資訊(圖書館版本的google map)
+- The way to find books is so .red[complicated]
+
+- .green[Intelligent Library Guidance Services] 
+
+- Solution
+    - Augmented Reality 
+
+    - Book location API
+
+???
+- 找書時，需要到學校圖書館的官方網站，搜尋到想找的書之後，查看哪一區、哪個書櫃，最後一本一本的將書給找出來。
+
+- 運用資訊科記得力量解決問題
+
+- 我想到的方式是用大家都隨身攜帶的"手機"，運用擴增實境技術，導覽至書籍所在處
+
+- 但是，我們要怎麼知道每一本書籍的位置呢?
+
+- Client side: Augmented Reality 就像是用Google map找建築物一樣，不過差別在於室內定位的精確度要更高
+- Server side: 書籍地點資料
+
+---
+
+# Purpose
+
+- Find book way .red[easier] (just input book name)
+
+- Precise location data
+
+- Database synchronize
+
+- Applied to Mall or Exhibition 
+
+???
+找書不好找，應用AR技術可以更快的找到想要的書籍，並且提供進階資訊(圖書館版本的google map)
+
+- 只要輸入書籍名稱，即可應用擴增實境技術導覽您至目的地
+
+- 書籍資料庫與學校同步
 
 - 未來可將此應用擴展至各大商場或展場，推廣文創活動並取得商機。
 
-???
 - story(為什麼要研究這樣的技術，Google map 無法做的，而我的研究要做的)
+
 - 代入情境
 
 ---
 
 # Research Method 
 
+- Book location accuracy 
+    - Find building blueprint 
+
+- Mobile Positioning using .red[Integrated Heterogeneous Network]
+
+- WebService serve books' data 
+
+- Navigate with Android app
+
+???
 - 首先，要解決定位精確度的問題
 
 - 詢問圖書館有無建築物藍圖對應之經緯度作表（無）
 
 - Solution: 引入 跨異質網路行動定位 之技術
+---
+# Research Method 
 
+- Book location accuracy 
+<s>
+    - Find building blueprint
+</s>
+
+- Mobile Positioning using .red[Integrated Heterogeneous Network]
+
+- WebService serve books' data 
+
+- Navigate with Android app
 ---
 name: IHN 
 class: center, middle, inverse
 ## Integrated Heterogeneous Network
+##### Granted Taiwan Utility Model Patents M490010 #####
+
+.footnote[ https://sites.google.com/site/chihua0826/patent ]
+???
+引用 已核准台灣新型專利 "整合異質網路之行動定位的系統"
 ---
-![Heterogenous Network Method](image/Heterogeneous_Network_Method.png)
+![Heterogeneous Network Method](image/Heterogeneous_Network_Method.png)
 ---
 
 .left-column[
-  ## Collect
+  ### Collect
 ]
 .right-column[
-### Collect Heterogenous Network Info
+### Collect Heterogeneous Network Info
 
 - Record current time
 
-- Cell ID 、WiFi訊號強度
+- Cell ID 、WiFi signal intensity
 ]
 ---
 
 .left-column[
-  ## Collect
-  ## Analyze
+  ### Collect
+  ### Analyze
 ]
 
 .right-column[
-### 分析資料進行加權, 並轉換為向量空間
+### Turn weighted Data to vector spaces
+
+- Turn the signal intensity to vector spaces, set undetected base station to MIN
+
+- Normalize Signal Intensity 
+    - The interval of signal intensity is different 
+
+    - Normalized signal range is `0~1`
+]
+
+???
+- 分析資料進行加權, 並轉換為向量空間
 
 - 將收集到之訊號強度表⽰示為向量集合,未偵測到訊號的基站設為極⼩小值
 
 - 訊號強度正規化
     - 每種網路收集到的訊號強度最⼤大值和最⼩小值區間不相同
     - 正規化後的訊號強度介於`0~1`之間
-]
 
 ---
 
 .left-column[
-  ## Collect
-  ## Analyze
+  ### Collect
+  ### Analyze
 ]
 
 .right-column[
 
-### 時間序列加權
+### Weighted by time series
 
-- 當下的訊號強度權重最⾼高,但也考量前複數個訊號強度集合進⾏行加權平均
+- The current data has greatest weighting
 
-### 網路傳輸距離加權
+- Weight will be higher if the data is more current
 
-- 傳輸距離短的無線網路作為定位時,定位精準度⽐比較⾼高
+### Weighted by transfer distance
+
+- Positioning accurary will be higher if the transfer distance is shorter
 ]
+???
+- 時間序列加權
+    - 當下的訊號強度權重最⾼高,但也考量前複數個訊號強度集合進⾏行加權平均
 
+- 網路傳輸距離加權
+    - 傳輸距離短的無線網路作為定位時,定位精準度⽐比較⾼高
 ---
 
 .left-column[
-  ## Collect
-  ## Analyze
-  ## Compare
+  ### Collect
+  ### Analyze
+  ### Compare
 ]
 
 .right-column[
+### Compare with history database
+
+- Compare with base station ID, Signal intensity and time
+
+- Get k most similar data
+]
+???
+
 ### 與歷史資料庫比對，取得最接近的k筆資料
 
 - 依基站識別碼、訊號強度、時間點之資料轉換所得的向量空間與歷史資料各個定位點的向量資料進⾏行比對
 
 - 取出最相似的k筆
-]
-
 ---
 
 .left-column[
-  ## Collect
-  ## Analyze
-  ## Compare
-  ## Predict
+  ### Collect
+  ### Analyze
+  ### Compare
+  ### Predict
 ]
 
 .right-column[
+### Data distance's vector space to Averaged mean 
+
+- Use the k data and the weight of latitude and longtitude to get weighted mean
+
+- The degree of similarity higher, the greater the weight 
+]
+???
 ### 依每筆資料向量距離進⾏行加權平均,估計⽬目前位置
 
 - 將取出之最相似的k筆,依這k筆資料所 對應的經緯度座標進⾏行加權平均
 
 - 相似度越⾼高的資料,其權重越⾼高
-]
 ---
 class: center, middle, inverse
 # Experimental
@@ -266,7 +367,7 @@ class: center, middle, inverse
 # Book Geo Data
 
 .left-column[
-## Book's Location 
+### Book's Location 
 ]
 
 .right-column[
@@ -283,9 +384,9 @@ class: center, middle, inverse
 # Book Geo Data
 
 .left-column[
-## Book's Location 
+### Book's Location 
 
-## Cell, WIFI INFO 
+### Cell, WIFI INFO 
 ]
 
 .right-column[
@@ -295,11 +396,11 @@ class: center, middle, inverse
 
 # Book Geo Data
 .left-column[
-## Book's Location 
+### Book's Location 
 
-## Cell, WIFI INFO 
+### Cell, WIFI INFO 
 
-## Mobile Logger
+### Mobile Logger
 ]
 
 .right-column[
@@ -318,13 +419,13 @@ choose android phone or adb
 ---
 # Book Geo Data
 .left-column[
-## Book's Location 
+### Book's Location 
 
-## Cell, WIFI INFO 
+### Cell, WIFI INFO 
 
-## Mobile Logger
+### Mobile Logger
 
-## Algorithm
+### Algorithm
 ]
 
 ---
@@ -370,10 +471,22 @@ Dynamic Navigation: 持續用一條thread對畫面方位的呈現進行更新
 ---
 
 # Prospect
+
+- Applied in store and exhibition
+
+- Question Answer system
+
+- Imaged-based AR
+
+- Automatic text Summarization
+???
 - 將此應用擴展至各大商場和展場,將更能推廣文創活動並取得商機。
 
-- 圖片 and 例子
+- 問答系統
 
+- 擴增實境書籍推薦
+
+- 自動讀者評論參考、擴增實境書籍導覽與互動等功能
 ---
 name: inverse
 class: center, middle, inverse
