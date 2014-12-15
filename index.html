@@ -369,11 +369,17 @@ class: center, middle, inverse
 ]
 
 .right-column[
-### Data distance's vector space to Averaged mean 
+### Predict by history 
 
-- Use the k data and the weight of latitude and longtitude to get weighted mean
+- Use the k data
 
-- The degree of similarity higher, the greater the weight 
+- .red[Similarity] as weight
+
+- Weighted by latitude and longtitude
+
+- Get final latitude and longtitude
+
+![Predict](image/signal_predict.png)
 ]
 ???
 ### 依每筆資料向量距離進⾏行加權平均,估計⽬目前位置
@@ -429,7 +435,9 @@ class: center, middle, inverse
 
 - Collect 2G/3G, WIFI, GSensor, GPS data 
 
-- Thread
+- UiHandler communicate with Worker thread
+
+- Write data to `sdcard/mobileinfo/`
 
 - Demo 
 ```
@@ -450,6 +458,14 @@ choose android phone or adb
 ### Algorithm
 ]
 
+.right-column[
+
+- Ruby script
+
+- [Heterogeneous Network Method](http://chichunchen.github.io/IndoorAR/#8)
+
+- Get accurate latitude and longtitude 
+]
 ---
 
 # WebService
@@ -463,7 +479,7 @@ choose android phone or adb
 
 # IndoorAR 
 
-- Get Json Data from WebService
+- Get Json code from WebService
 
 - Permission: `Camera, ACCESS_FINE_LOCATION`
 
