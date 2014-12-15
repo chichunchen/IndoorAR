@@ -149,7 +149,7 @@ Outline
     - Compare
     - Predict
 
-- Experimental
+- Experiment
     - Book Geo Data
     - WebService
     - IndoorAR
@@ -246,7 +246,6 @@ class: center, middle, inverse
 ## Integrated Heterogeneous Network
 ##### Granted Taiwan Utility Model Patents M490010 #####
 
-.footnote[ https://sites.google.com/site/chihua0826/patent ]
 ???
 引用 已核准台灣新型專利 "整合異質網路之行動定位的系統"
 ---
@@ -259,10 +258,15 @@ class: center, middle, inverse
 .right-column[
 ### Collect Heterogeneous Network Info
 
-- Record current time
+- Record timestamp
 
 - Cell ID 、WiFi signal intensity
+
+![Raw Data](image/raw_data.png)
 ]
+
+???
+收集異質網路之基站資訊與訊號強度, 時間戳記
 ---
 
 .left-column[
@@ -271,25 +275,43 @@ class: center, middle, inverse
 ]
 
 .right-column[
-### Turn weighted Data to vector spaces
+### Signal Intesity vector set
 
-- Turn the signal intensity to vector spaces, set undetected base station to MIN
+- Turn signal intensity to .red[vector set]
 
-- Normalize Signal Intensity 
-    - The interval of signal intensity is different 
+- Set undetected base station to MIN
 
-    - Normalized signal range is `0~1`
+![Signal Intensity Vector Formula](image/signal_intensity_formula.png)
+![Signal Intensity Vector Space](image/signal_intensity_vector.png)
 ]
 
 ???
 - 分析資料進行加權, 並轉換為向量空間
 
 - 將收集到之訊號強度表⽰示為向量集合,未偵測到訊號的基站設為極⼩小值
+---
 
+.left-column[
+  ### Collect
+  ### Analyze
+]
+
+.right-column[
+### Normalization
+
+- Normalize Signal Intensity 
+    - The interval of signal intensity is different 
+        - WIFI `-55dBM ~ -100dBM`
+        - UMTS `-51dBM ~ -113dBM`
+
+    - Normalized signal range is `0~1`
+
+![Normalization Formula](image/signal_normalize_formula.png)
+]
+???
 - 訊號強度正規化
     - 每種網路收集到的訊號強度最⼤大值和最⼩小值區間不相同
     - 正規化後的訊號強度介於`0~1`之間
-
 ---
 
 .left-column[
@@ -299,13 +321,13 @@ class: center, middle, inverse
 
 .right-column[
 
-### Weighted by time series
+### Weighted by .red[time] series
 
 - The current data has greatest weighting
 
 - Weight will be higher if the data is more current
 
-### Weighted by transfer distance
+### Weighted by transfer .red[distance]
 
 - Positioning accurary will be higher if the transfer distance is shorter
 ]
@@ -361,7 +383,7 @@ class: center, middle, inverse
 - 相似度越⾼高的資料,其權重越⾼高
 ---
 class: center, middle, inverse
-# Experimental
+# Experiment
 ---
 
 # Book Geo Data
