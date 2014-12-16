@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>智慧圖書導覽服務</title>
+    <title>Intelligent Library Guidance Service | 智慧圖書導覽服務</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style type="text/css">
     /* Slideshow styles */
@@ -161,7 +161,59 @@ Outline
 
 - The way to find books is so .red[complicated]
 
-- .green[Intelligent Library Guidance Services] 
+???
+- 學校的圖書資源非常豐富，但是借書的找書的手續實在太過複雜、麻煩。
+
+- 下面為大家重新複習在交大借書的流程。
+---
+
+# Motivation
+
+- The way to find books is so .red[complicated]
+
+![](image/findbook_step1-1.png)
+
+.footnote[ http://www.lib.nctu.edu.tw ]
+
+???
+- 首先，進到交大圖書館網頁後，點擊`圖書搜尋`
+
+- 輸入想找的書籍關鍵字
+---
+
+# Motivation
+
+- The way to find books is so .red[complicated]
+
+![](image/findbook_step1-1.png)
+
+![](image/findbook_step1-2.png)
+
+.footnote[ http://www.lib.nctu.edu.tw ]
+---
+# Motivation
+
+- The way to find books is so .red[complicated]
+
+![](image/findbook_step2.png)
+
+- You have to remember `QA76.73.O123 O 64 2012` !
+
+- Or write on a paper
+
+.footnote[ http://www.lib.nctu.edu.tw ]
+---
+class: center, middle
+![](image/findbook_step3.png)
+---
+class: middle, center
+## Troublesome 
+
+## Environment .red[Unfriendly]
+---
+# Motivation
+
+- .green[Intelligent Library Guidance Service] 
 
 - Solution
     - Augmented Reality 
@@ -184,19 +236,30 @@ Outline
 
 # Purpose
 
-- Find book way .red[easier] (just input book name)
+- Only .red[One] step
+
+???
+找書不好找，應用AR技術可以更快的找到想要的書籍，並且提供進階資訊(圖書館版本的google map)
+
+- 只要輸入書籍名稱，即可應用擴增實境技術導覽您至目的地
+---
+
+# Purpose
+
+- Only .red[One] step
+
+![One Step Search](image/AR_search_and_advice_2.jpg)
+
+---
+
+# Purpose
 
 - Precise location data
 
 - Database synchronize
 
 - Applied to Mall or Exhibition 
-
 ???
-找書不好找，應用AR技術可以更快的找到想要的書籍，並且提供進階資訊(圖書館版本的google map)
-
-- 只要輸入書籍名稱，即可應用擴增實境技術導覽您至目的地
-
 - 書籍資料庫與學校同步
 
 - 未來可將此應用擴展至各大商場或展場，推廣文創活動並取得商機。
@@ -204,7 +267,6 @@ Outline
 - story(為什麼要研究這樣的技術，Google map 無法做的，而我的研究要做的)
 
 - 代入情境
-
 ---
 
 # Research Method 
@@ -246,7 +308,20 @@ class: center, middle, inverse
 ???
 引用 已核准台灣新型專利 "整合異質網路之行動定位的系統"
 ---
-![Heterogeneous Network Method](image/Heterogeneous_Network_Method.png)
+### Schematic Diagram
+![Heterogeneous Network Architecture](image/Heterogeneous_Arch.png)
+???
+將這項專利收集資料的方式作些微的調整，車載設備換成人去實測。
+雲端資料庫改成用自己架的server
+---
+class: middle, center
+## Collect
+
+## Analyze
+
+## Compare
+
+## Predict
 ---
 
 .left-column[
@@ -398,13 +473,9 @@ class: center, middle, inverse
 
 .right-column[
 
-- Find the absolute location of library
+- Find the absolute position of books 
 
-- Mark 
-
-- Go get data!
-
-![圖書館櫃架圖片](image/library-map.png)
+- Mark bookcase
 ]
 
 ???
@@ -412,6 +483,22 @@ class: center, middle, inverse
 
 ---
 
+.left-column[
+### Book's Location 
+]
+
+.right-column[
+
+- Find the absolute position of books 
+
+- Mark bookcase
+
+![圖書館櫃架圖片](image/library-map.png)
+
+- Go get data!
+]
+
+---
 .left-column[
 ### Book's Location 
 
@@ -475,7 +562,7 @@ choose android phone or adb
 
 - Put result Data in Database
 
-- Render JSON code for client app
+- Host JSON code for client app
 
 .footnote[ http://rubyonrails.org ]
 ---
@@ -534,11 +621,13 @@ class: center, middle, inverse
 ## Any Question?
 ---
 # Reference
-- A Mobile Positioning System and Method Based on Integrated Heterogeneous Networks
+- .blue[ A Mobile Positioning System and Method Based on Integrated Heterogeneous Networks ]
 
 - https://sites.google.com/site/chihua0826/patent
 
 - http://en.wikipedia.org/wiki/Augmented_reality
+
+- http://rubyonrails.org
 ---
 name: inverse
 class: center, middle, inverse
