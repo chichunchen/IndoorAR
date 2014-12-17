@@ -483,20 +483,8 @@ class: center, middle, inverse
 
 ---
 
-.left-column[
-### Book's Location 
-]
-
-.right-column[
-
-- Find the absolute position of books 
-
-- Mark bookcase
-
-![圖書館櫃架圖片](image/library-map.png)
-
-- Go get data!
-]
+class: center, middle, inverse
+![圖書館櫃架圖片](image/library_2d.pdf)
 
 ---
 .left-column[
@@ -507,10 +495,12 @@ class: center, middle, inverse
 
 .right-column[
 
-- Demo
+![](image/signal_info.png)
+
 ]
 ???
 貼各種Info的資料格式
+給大家看真的有去收了一堆data
 ---
 
 .left-column[
@@ -530,12 +520,17 @@ class: center, middle, inverse
 - Write data to `sdcard/mobileinfo/`
 
 - Demo 
-```
+```iterm
 java -jar asm.jar
-choose android phone or adb
+choose device 
 ```
 .footnote[ https://github.com/chichunchen/MobileLogger ]
 ]
+
+???
+
+- 在撰寫 Java 或 Android app 時，UI thread是絕對不能中斷的，不然程式會看起來像是當掉，
+因此，程式中用了worker thread 來偵測signal以及將data寫入file中。
 ---
 
 .left-column[
@@ -581,9 +576,9 @@ choose android phone or adb
 
 .footnote[ https://github.com/chichunchen/IndoorAR ]
 ???
-Get Json Data from WebService: 抓資料庫中的JSON Data進行定位標示
+- Get Json Data from WebService: 抓資料庫中的JSON Data進行定位標示
 
-Dynamic Navigation: 持續用一條thread對畫面方位的呈現進行更新
+- Dynamic Navigation: 持續用一條thread對畫面方位的呈現進行更新
 
 ---
 
@@ -631,7 +626,7 @@ class: center, middle, inverse
 ---
 name: inverse
 class: center, middle, inverse
-## Thank you
+# Thank you
 Slideshow created using [remark](http://github.com/gnab/remark).
 
       </textarea>
