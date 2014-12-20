@@ -1,8 +1,8 @@
-IFM Final project
-=================
-The graduation term project in [IMF, NCTU](http://www.imf.nctu.edu.tw/main.php).
+Intelligent Library Guidance Service
+====================================
+My graduation term project in [IMF, NCTU](http://www.imf.nctu.edu.tw/main.php).
 
-Click [here](http://chichunchen.github.io/IndoorAR) to checkout my final project slide in IFM.
+Click [here](http://chichunchen.github.io/IndoorAR) to checkout my final project slides.
 
 Advice
 ------
