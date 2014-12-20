@@ -129,6 +129,9 @@ class: center, middle, inverse
 
 .footnote[NCTU IFM Final Project .red[2014]]
 
+???
+大家好～ 我今天要報告的主題是雲端智慧導覽服務，我的指導老師是羅濟群教授和陳至華學長。
+接下來介紹這次報告的報告大綱。
 ---
 
 Outline
@@ -155,6 +158,11 @@ Outline
 
 - Prospect
 
+???
+
+首先要介紹"動機"、"目的"，再來是研究方法與碰到的困難，與如何解決困難，
+驗證的方法還有demo，最後是對這個專案的未來期望。
+
 ---
 
 # Motivation
@@ -162,9 +170,11 @@ Outline
 - The way to find books is so .red[complicated]
 
 ???
-- 學校的圖書資源非常豐富，但是借書的找書的手續實在太過複雜、麻煩。
+- 首先來介紹一下我的動機，不知道大家有沒有在圖書館借書的經驗，我自己借書的時候會
+覺得實在花太多時間在"找書"，
 
-- 下面為大家重新複習在交大借書的流程。
+- 以下幫大家複習一下在交大找書的流程，大家就可能會跟我有一樣的想法了XD。
+
 ---
 
 # Motivation
@@ -190,6 +200,11 @@ Outline
 ![](image/findbook_step1-2.png)
 
 .footnote[ http://www.lib.nctu.edu.tw ]
+???
+- 接下來網站會列出有關於關鍵字的所有書籍
+
+- 我列的例子是比較準確的關鍵字，所以出現的選擇數較少，但如果關鍵字比較rough的話，
+就會出現一大堆東西。
 ---
 # Motivation
 
@@ -202,9 +217,17 @@ Outline
 - Or write on a paper
 
 .footnote[ http://www.lib.nctu.edu.tw ]
+???
+- 點擊要找的書之後，會列出那本書的細節
+
+- 我們基本上要把索書號給記下來或寫下來
 ---
 class: center, middle
 ![](image/findbook_step3.png)
+???
+- 最後，拿著記下索書號的小紙條，找到那本書
+
+- 而且看過內容之後還有很大的機率那本書不是你要找的orz
 ---
 class: middle, center
 ## Troublesome 
@@ -214,7 +237,7 @@ class: middle, center
 ## Take a lot of .red[time]
 
 ???
-- 步驟很麻煩，而且花不少時間
+- 步驟很多很麻煩，而且花不少時間
 - 而且把書本編號寫在紙上非常的不環保
 ---
 # Motivation
@@ -227,17 +250,10 @@ class: middle, center
     - Book location API
 
 ???
-- 找書時，需要到學校圖書館的官方網站，搜尋到想找的書之後，查看哪一區、哪個書櫃，最後一本一本的將書給找出來。
+- 我這個專題的想法是，讓大家用隨身攜帶的"手機"，運用擴增實境技術，導覽至書的位置
 
-- 運用資訊科技的力量解決問題
-
-- 我想到的方式是，用大家都隨身攜帶的"手機"，運用擴增實境技術，導覽至書籍所在處
-
-- 但是，我們要怎麼知道每一本書籍的位置呢?
-
-- Client side: Augmented Reality 就像是用Google map找建築物一樣，不過差別在於室內定位的精確度要更高
+- Client side: Augmented Reality就像是用Google map找建築物一樣，不過差別在於室內定位的精確度要更高
 - Server side: 書籍地點資料
-
 ---
 
 # Purpose
@@ -245,9 +261,10 @@ class: middle, center
 - Only .red[One] step
 
 ???
-找書不好找，應用AR技術可以更快的找到想要的書籍，並且提供進階資訊(圖書館版本的google map)
+- 我的專題目的是讓找書的流程剩下一步
 
-- 只要輸入書籍名稱，即可應用擴增實境技術導覽您至目的地
+- 不需要在電腦前查詢書籍，寫在紙條上，等等麻煩的步驟。
+
 ---
 
 # Purpose
@@ -255,6 +272,10 @@ class: middle, center
 - Only .red[One] step
 
 ![One Step Search](image/AR_search_and_advice_2.jpg)
+???
+- 像這樣！
+
+- 只要輸入書籍名稱，即可應用擴增實境技術導覽您至目的地!!
 
 ---
 
@@ -270,9 +291,10 @@ class: middle, center
 
 - 未來可將此應用擴展至各大商場或展場，推廣文創活動並取得商機。
 
-- story(為什麼要研究這樣的技術，Google map 無法做的，而我的研究要做的)
+- 可以把這個想成是室內版的google map，它可以定位的比google map精準
 
-- 代入情境
+- 因為google map是給室外用的，會因為在室內而因為GPS定位受干擾
+
 ---
 
 # Research Method 
@@ -287,11 +309,9 @@ class: middle, center
 - Navigate with Android app
 
 ???
-- 首先，要解決定位精確度的問題
+- 再來介紹研究方法。首先，要解決定位精確度的問題
 
-- 詢問圖書館有無建築物藍圖對應之經緯度作表（無）
-
-- Solution: 引入 跨異質網路行動定位 之技術
+- 我問圖書館有沒有建築物藍圖對應之經緯度作標，答案是無orz
 ---
 # Research Method 
 
@@ -305,6 +325,8 @@ class: middle, center
 - WebService serve books' data 
 
 - Navigate with Android app
+???
+- 最後的解法是引入"跨異質網路行動定位"這項技術
 ---
 name: IHN 
 class: center, middle, inverse
@@ -312,22 +334,29 @@ class: center, middle, inverse
 ##### Granted Taiwan Utility Model Patents .red[M490010] #####
 
 ???
-引用 已核准台灣新型專利 "整合異質網路之行動定位的系統"
+- 這邊先簡單介紹"跨異質網路行動定位"這項技術。
+
+- 用這項技術可以解決室內GPS定位受干擾的問題
+
+- 因為它利用多種的網路訊號像是wifi, 3g基地台等不同的網路訊號進行行動定位
 ---
 ### Schematic Diagram
-![Heterogeneous Network Architecture](image/Heterogeneous_Arch.png)
+![Heterogeneous Network Architecture](image/Heterogeneous_Arch_before.png)
 ???
-將這項專利收集資料的方式作些微的調整，車載設備換成人去實測。
-雲端資料庫改成用自己架的server
+- 這項技術的基本架構圖長這樣
+
+- 車載設備可偵測到的基地台有很多個，他們的訊號強度有強有弱
 ---
-class: middle, center
-## Collect
+### Schematic Diagram
+![Heterogeneous Network Architecture](image/Heterogeneous_Arch_after.png)
+???
+- 然後我把它config成這樣:
 
-## Analyze
+- 車載設備換成人去實測
 
-## Compare
+- 雲端資料庫改成用自己架的server
 
-## Predict
+- 接下來介紹跨異質網路行動定位的流程
 ---
 
 .left-column[
@@ -344,7 +373,7 @@ class: middle, center
 ]
 
 ???
-收集異質網路之基站資訊與訊號強度, 時間戳記
+- 第一步是去收集異質網路的基站資訊, 訊號強度和時間戳記
 ---
 
 .left-column[
@@ -388,9 +417,11 @@ class: middle, center
 ![Normalization Result Table](image/signal_normalize_table.png)
 ]
 ???
-- 訊號強度正規化
-    - 每種網路收集到的訊號強度最⼤大值和最⼩小值區間不相同
-    - 正規化後的訊號強度介於`0~1`之間
+- 因為3g與wifi收集到的訊號強度最⼤大值和最⼩小值區間不相同
+
+- 所以要將訊號強度做正規化，讓wifi與3g的強度可以互相比較
+
+- 正規化後的訊號強度介於`0~1`之間
 ---
 
 .left-column[
@@ -411,11 +442,11 @@ class: middle, center
 - Positioning accurary will be higher if the transfer distance is shorter
 ]
 ???
-- 時間序列加權
-    - 當下的訊號強度權重最⾼高,但也考量前複數個訊號強度集合進⾏行加權平均
+- 再來是對時間與網路傳輸的距離作加權
 
-- 網路傳輸距離加權
-    - 傳輸距離短的無線網路作為定位時,定位精準度⽐比較⾼高
+- 當下的訊號強度權重最⾼
+
+- 傳輸距離短的無線網路作為定位時，定位精準度⽐較高
 ---
 
 .left-column[
@@ -435,11 +466,11 @@ class: middle, center
 ]
 ???
 
-### 與歷史資料庫比對，取得最接近的k筆資料
+- 與歷史資料庫比對
 
-- 依基站識別碼、訊號強度、時間點之資料轉換所得的向量空間與歷史資料各個定位點的向量資料進⾏行比對
+- 依剛剛分析所得的向量資料與歷史的各個定位點的向量資料進⾏行比對
 
-- 取出最相似的k筆
+- 取得最接近這次收集到的向量最接近的k筆資料
 ---
 
 .left-column[
@@ -463,14 +494,16 @@ class: middle, center
 ![Predict](image/signal_predict.png)
 ]
 ???
-### 依每筆資料向量距離進⾏行加權平均,估計⽬目前位置
+- 將那k筆資料所對應的經緯度座標做加權平均
 
-- 將取出之最相似的k筆,依這k筆資料所 對應的經緯度座標進⾏行加權平均
+- 再以歐基里德公式估計出目前的位置
 
-- 相似度越⾼高的資料,其權重越⾼高
+- 相似度越⾼高的資料，其權重越⾼高
 ---
 class: center, middle, inverse
 # Experiment
+???
+- 接下來要進行實作的介紹
 ---
 
 .left-column[
