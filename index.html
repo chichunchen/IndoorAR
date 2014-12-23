@@ -610,21 +610,19 @@ choose device
 
 # IndoorAR 
 
-- Get Json code from WebService
+- Current location info matching with database info
 
-- Permission: `Camera, ACCESS_FINE_LOCATION`
+- Dynamic Navigation 
 
-- Dynamic Navigation
-
-- Sort the Distance of Objects
-
-- Demo `MB10 version` 
+- Demo 
 
 .footnote[ https://github.com/chichunchen/IndoorAR ]
 ???
-- Get Json Data from WebService: 抓資料庫中的JSON Data進行定位標示
+- 首先，app會用當下收集到的cell info, wifi info，對資料庫中的Data進行比對
 
-- Dynamic Navigation: 持續用一條thread對畫面方位的呈現進行更新
+- 然後把算出來的位置顯示在螢幕上
+
+- 在導航的過程中，持續用一條thread對畫面方位的呈現進行更新顯示目標
 
 ---
 
@@ -648,6 +646,8 @@ choose device
 - Imaged-based AR
 
 - Automatic text Summarization
+
+- Demo `Mb10` version
 ???
 - 將此應用擴展至各大商場和展場,將更能推廣文創活動並取得商機。
 
