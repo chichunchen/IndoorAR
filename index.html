@@ -130,7 +130,7 @@ class: center, middle, inverse
 .footnote[NCTU IFM Final Project .red[2014]]
 
 ???
-大家好～ 我今天要報告的主題是雲端智慧導覽服務，我的指導老師是羅濟群教授和陳至華學長。
+大家好～ 我今天要報告的主題是雲端智慧導覽服務，我的指導老師是羅濟群教授和陳志華學長。
 接下來介紹這次報告的報告大綱。
 ---
 
@@ -149,7 +149,7 @@ Outline
     - Compare
     - Predict
 
-- Experiment
+- Implementation 
     - Book Geo Data
     - WebService
     - IndoorAR
@@ -183,6 +183,8 @@ Outline
 
 ![](image/findbook_step1-1.png)
 
+# .blue[Step 1]
+
 .footnote[ http://www.lib.nctu.edu.tw ]
 
 ???
@@ -198,6 +200,8 @@ Outline
 ![](image/findbook_step1-1.png)
 
 ![](image/findbook_step1-2.png)
+
+# .blue[Step 2]
 
 .footnote[ http://www.lib.nctu.edu.tw ]
 ???
@@ -215,6 +219,8 @@ Outline
 - You have to remember `QA76.73.O123 O 64 2012` !
 
 - Or write on a paper
+
+# .blue[Step 3]
 
 .footnote[ http://www.lib.nctu.edu.tw ]
 ???
@@ -252,13 +258,13 @@ class: middle, center
 ???
 - 我這個專題的想法是，讓大家用隨身攜帶的"手機"，運用擴增實境技術，導覽至書的位置
 
-- Client side: Augmented Reality就像是用Google map找建築物一樣，不過差別在於室內定位的精確度要更高
-- Server side: 書籍地點資料
+- 前端的地方用虛擬實境的方法，就像是用Google map找建築物一樣，不過差別在於室內定位的精確度要更高
+- 後端放書籍地點的資料API，讓client端去call
 ---
 
 # Purpose
 
-- Only .red[One] step
+- Four step to .red[One] step
 
 ???
 - 我的專題目的是讓找書的流程剩下一步
@@ -269,7 +275,7 @@ class: middle, center
 
 # Purpose
 
-- Only .red[One] step
+- Four step to .red[One] step
 
 ![One Step Search](image/AR_search_and_advice_2.jpg)
 ???
@@ -304,10 +310,6 @@ class: middle, center
 
 - Mobile Positioning using .red[Integrated Heterogeneous Network]
 
-- WebService serve books' data 
-
-- Navigate with Android app
-
 ???
 - 再來介紹研究方法。首先，要解決定位精確度的問題
 
@@ -321,12 +323,17 @@ class: middle, center
 </s>
 
 - Mobile Positioning using .red[Integrated Heterogeneous Network]
-
-- WebService serve books' data 
-
-- Navigate with Android app
 ???
 - 最後的解法是引入"跨異質網路行動定位"這項技術
+---
+# Research Method
+
+- Serve books location API with WebService
+
+- Navigate with Android app
+.footnote[ http://en.wikipedia.org/wiki/Web_service ]
+???
+- 把運算完的資料放入Server，然後用WebService提供location API 給Android App
 ---
 name: IHN 
 class: center, middle, inverse
@@ -336,7 +343,7 @@ class: center, middle, inverse
 ???
 - 這邊先簡單介紹"跨異質網路行動定位"這項技術。
 
-- 用這項技術可以解決室內GPS定位受干擾的問題
+- 用這項技術可以解決室內GPS定位受干擾或是收不到GPS訊號的問題
 
 - 因為它利用多種的網路訊號像是wifi, 3g基地台等不同的網路訊號進行行動定位
 ---
@@ -501,7 +508,7 @@ class: center, middle, inverse
 - 相似度越⾼高的資料，其權重越⾼高
 ---
 class: center, middle, inverse
-# Experiment
+# Implementation
 ???
 - 接下來要進行實作的介紹
 ---
@@ -518,12 +525,14 @@ class: center, middle, inverse
 ]
 
 ???
-尋找圖書館櫃架經緯度地圖
+- 首先要尋找圖書館櫃架經緯度地圖
 
 ---
 
 class: center, middle, inverse
 ![圖書館櫃架圖片](image/library_2d.png)
+???
+- 舉圖書館六樓為例，用Mobile Logger把標示的點的位置資料收集起來
 
 ---
 .left-column[
@@ -538,8 +547,7 @@ class: center, middle, inverse
 
 ]
 ???
-貼各種Info的資料格式
-給大家看真的有去收了一堆data
+- 收集到的raw data長這樣
 ---
 
 .left-column[
@@ -567,6 +575,7 @@ choose device
 ]
 
 ???
+- 收資料一個叫mobile logger的app收的，這邊簡單demo一下 
 
 - 在撰寫 Java 或 Android app 時，UI thread是絕對不能中斷的，不然程式會看起來像是當掉，
 因此，程式中用了worker thread 來偵測signal以及將data寫入file中。
@@ -583,8 +592,6 @@ choose device
 ]
 
 .right-column[
-
-- Ruby script
 
 - [Heterogeneous Network Method](http://chichunchen.github.io/IndoorAR/#8)
 
