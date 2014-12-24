@@ -294,27 +294,30 @@ class: middle, center
 
 - Applied to Mall or Exhibition 
 ???
-- 書籍資料庫與學校同步
+- 要做到上述的目的，第一個是我們需要有每本書精準的位置
 
-- 未來可將此應用擴展至各大商場或展場，推廣文創活動並取得商機。
+- 然後書籍資料庫也要與學校同步，這樣才不會導引到錯的地方
 
-- 可以把這個想成是室內版的google map，它可以定位的比google map精準
-
-- 因為google map是給室外用的，會因為在室內而因為GPS定位受干擾
+- 可以把這個想成是室內版的google map，它在室內可以定位的比google map精準
 
 ---
 
 # Research Method 
 
 - Book location accuracy 
+
     - Find building blueprint 
 
-- Mobile Positioning using .red[Integrated Heterogeneous Network]
-
 ???
-- 再來介紹研究方法。首先，要解決定位精確度的問題
+- 再來介紹研究方法。
 
-- 我問圖書館有沒有建築物藍圖對應之經緯度作標，答案是無orz
+- 首先，要解決定位精準度的問題，需要有每本書位子的資料
+
+- 但是要怎麼得到書籍的位子的資料呢？
+
+- 直覺是去問圖書館有沒有建築物藍圖對應之經緯度作標，如果有的話我就可以進行到下個步驟
+
+- 不過答案是無orz
 ---
 # Research Method 
 
@@ -323,9 +326,17 @@ class: middle, center
     - Find building blueprint
 </s>
 
+    - Collect data by myself
+
 - Mobile Positioning using .red[Integrated Heterogeneous Network]
 ???
-- 最後的解法是引入"跨異質網路行動定位"這項技術
+- 沒有對應的經緯度座標那就要自己去一個點一個點搜集資料了
+
+- 這樣會花很多時間搜集資料，所以先把範圍訂在圖書館六樓就好
+
+- 然後引入"跨異質網路行動定位"這項技術來增加定位的準確度
+
+- 如果直接用gps的點來定位的話很可能因為室內抓不到gps資料，而有很大的誤差，這是導入這項技術的主因
 ---
 # Research Method
 
@@ -334,7 +345,9 @@ class: middle, center
 - Navigate with Android app
 .footnote[ http://en.wikipedia.org/wiki/Web_service ]
 ???
-- 把運算完的資料放入Server，然後用WebService提供location API 給Android App
+- 把跨異質網路行動定位這項技術運算完的資料放入Server
+
+- 然後用WebService提供location API 給Android App
 ---
 name: IHN 
 class: center, middle, inverse
@@ -342,11 +355,11 @@ class: center, middle, inverse
 ##### Granted Taiwan Utility Model Patents .red[M490010] #####
 
 ???
-- 這邊先簡單介紹"跨異質網路行動定位"這項技術。
+- 這邊簡單介紹一下"跨異質網路行動定位"這項技術。
 
 - 用這項技術可以解決室內GPS定位受干擾或是收不到GPS訊號的問題
 
-- 因為它利用多種的網路訊號像是wifi, 3g基地台等不同的網路訊號進行行動定位
+- 因為它利用多種的網路訊號，像是wifi或是3g基地台等不同的網路訊號進行行動定位
 ---
 ### Schematic Diagram
 ![Heterogeneous Network Architecture](image/Heterogeneous_Arch_before.png)
@@ -354,6 +367,8 @@ class: center, middle, inverse
 - 這項技術的基本架構圖長這樣
 
 - 車載設備可偵測到的基地台有很多個，他們的訊號強度有強有弱
+
+- 然後把蒐集到的資料回傳到雲端伺服器上做運算，並存起來
 ---
 ### Schematic Diagram
 ![Heterogeneous Network Architecture](image/Heterogeneous_Arch_after.png)
@@ -535,26 +550,11 @@ class: center, middle, inverse
 ???
 - 舉圖書館六樓為例，用Mobile Logger把標示的點的位置資料收集起來
 
----
-.left-column[
-### Book's Location 
-
-### Cell, WIFI INFO 
-]
-
-.right-column[
-
-![](image/signal_info.png)
-
-]
-???
-- 收集到的raw data長這樣
+- 圖中的代號代表每個櫃架或是研究小間的點
 ---
 
 .left-column[
 ### Book's Location 
-
-### Cell, WIFI INFO 
 
 ### Mobile Logger
 ]
@@ -581,23 +581,43 @@ choose device
 - 在撰寫 Java 或 Android app 時，UI thread是絕對不能中斷的，不然程式會看起來像是當掉，
 因此，程式中用了worker thread 來偵測signal以及將data寫入file中。
 ---
+.left-column[
+### Book's Location 
+
+### Mobile Logger
+
+### Cell, WIFI INFO 
+]
+
+.right-column[
+
+![](image/signal_info.png)
+
+]
+???
+- 收集到的raw data長這樣
+---
 
 .left-column[
 ### Book's Location 
 
-### Cell, WIFI INFO 
-
 ### Mobile Logger
+
+### Cell, WIFI INFO 
 
 ### Algorithm
 ]
 
 .right-column[
 
-- [Heterogeneous Network Method](http://chichunchen.github.io/IndoorAR/#8)
+- [Heterogeneous Network Method](http://chichunchen.github.io/IndoorAR/#16)
 
 - Get accurate latitude and longtitude 
 ]
+???
+- 最後把取得的書籍位置資料用跨異質行動定位的方法把資料整理出來
+
+- 開IndoorAR_data_process 這個檔案demo給大家看
 ---
 
 # WebService
@@ -607,6 +627,8 @@ choose device
 - Host JSON code for client app
 
 .footnote[ http://rubyonrails.org ]
+???
+- 然後把資料放到伺服器上，提供webservice給client app
 ---
 
 # IndoorAR 
@@ -636,6 +658,12 @@ choose device
 
 - Version Control : Git
 
+???
+- 這邊是我在這個專題中所用到與學習到的技術
+
+- 異質網路行動定位的實作讓我學到了很多關於網路定位的基本知識
+
+- 真的強烈推薦大家做版本控制，就像打電動可以續關一樣，真的差很多！！
 ---
 
 # Prospect
@@ -650,9 +678,9 @@ choose device
 
 - Demo `Mb10` version
 ???
-- 將此應用擴展至各大商場和展場,將更能推廣文創活動並取得商機。
+- 將此應用擴展至各大商場和展場，將更能推廣文創活動並取得商機
 
-- 問答系統
+- 增加問答系統，像siri那樣可以直接用問的
 
 - 擴增實境書籍推薦
 
