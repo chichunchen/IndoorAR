@@ -336,13 +336,18 @@ class: middle, center
 
 - 然後引入"跨異質網路行動定位"這項技術來增加定位的準確度
 
-- 如果直接用gps的點來定位的話很可能因為室內抓不到gps資料，而有很大的誤差，這是導入這項技術的主因
+- 如果直接用gps的點來定位的話很可能因為室內抓不到gps資料，而有很大的誤差
+
+- 這項技術利用室內的不同種類的網路基地台的強度去作一些比對和運算得到座標
 ---
 # Research Method
 
 - Serve books location API with WebService
 
 - Navigate with Android app
+
+![](image/webservice.png)
+
 .footnote[ http://en.wikipedia.org/wiki/Web_service ]
 ???
 - 把跨異質網路行動定位這項技術運算完的資料放入Server
@@ -521,7 +526,7 @@ class: center, middle, inverse
 
 - 再以歐基里德公式估計出目前的位置
 
-- 相似度越⾼高的資料，其權重越⾼高
+- 相似度越高的資料，其權重越⾼
 ---
 class: center, middle, inverse
 # Implementation
@@ -626,6 +631,8 @@ choose device
 
 - Host JSON code for client app
 
+![](image/webservice_json.png)
+
 .footnote[ http://rubyonrails.org ]
 ???
 - 然後把資料放到伺服器上，提供webservice給client app
@@ -641,9 +648,9 @@ choose device
 
 .footnote[ http://chichunchen.github.io/IndoorAR/demo/IndoorAR_demo.mp4 ]
 ???
-- 首先，app會用當下收集到的cell info, wifi info，對資料庫中的Data進行比對
+- 首先，app會把當下收集到的cell info, wifi info傳到server，並對資料庫中的Data進行比對
 
-- 然後把算出來的位置顯示在螢幕上
+- 然後用算出來的位置計算距離，然後導航到書本目的地
 
 - 在導航的過程中，持續用一條thread對畫面方位的呈現進行更新顯示目標
 
@@ -676,7 +683,9 @@ choose device
 
 - Automatic text Summarization
 
-- Demo `Mb10` version
+![Exhibition](image/exhibition.jpeg)
+
+.footnote[ http://www.chirange.com/indoor-tracking-solutions/ ]
 ???
 - 將此應用擴展至各大商場和展場，將更能推廣文創活動並取得商機
 
