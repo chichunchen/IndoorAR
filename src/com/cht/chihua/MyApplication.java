@@ -74,11 +74,11 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 
-		// 初始化AR元件的環境變數，建議在城市所屬的Application設定
+		// 初始化AR元件的環境變數, 建議在程式專屬的Application中設定
 		SPEnv.init(this);
 
-		// 設定嘗試以portrait方式開啟camera，只在最開始使用的activity中呼叫一次
-		// 也可以在程式專屬的Application設定
+		// 設定嘗試以portrait方式開啟camera, 只在最開始使用的activity中呼叫一次
+		// 也可以在程式專屬的Application中設定
 		SPCameraManager.getInstance().setPortraitDisplay(true);
 	}
 
