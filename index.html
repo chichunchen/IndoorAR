@@ -298,7 +298,7 @@ class: middle, center
 
 - 然後書籍資料庫也要與學校同步，這樣才不會導引到錯的地方
 
-- 可以把這個想成是室內版的google map，它在室內可以定位的比google map精準
+- 可以把這個想成是室內版的google map，它在室內定位不會因為抓不到gps的資訊而受到干擾
 
 ---
 
@@ -546,15 +546,19 @@ class: center, middle, inverse
 ]
 
 ???
-- 首先要尋找圖書館櫃架經緯度地圖
+- 首先要得到每個書櫃的經緯度資訊
 
 ---
 class: center, middle, inverse
 ![圖書館櫃架圖片](image/library_2d.png)
 ???
-- 舉圖書館六樓為例，用Mobile Logger把標示的點的位置資料收集起來
+- 舉圖書館六樓為例
 
 - 圖中的代號代表每個櫃架或是研究小間的點
+
+- 要把這些標示點的位置資料收集起來
+
+- 接下來介紹我是怎麼蒐集資料的
 ---
 
 .left-column[
@@ -576,10 +580,12 @@ class: center, middle, inverse
 ]
 
 ???
-- 收資料一個叫mobile logger的app收的，這邊簡單demo一下 
+- 收資料我是自己寫一個叫mobile logger的app收的
 
 - 在撰寫 Java 或 Android app 時，UI thread是絕對不能中斷的，不然程式會看起來像是當掉，
 因此，程式中用了worker thread 來偵測signal以及將data寫入file中。
+
+- 這邊簡單demo一下 
 ---
 .left-column[
 ### Book's Location 
@@ -689,8 +695,6 @@ class: center, middle, inverse
 
 - Imaged-based AR
 
-- Automatic text Summarization
-
 - [4G LTE](http://en.wikipedia.org/wiki/LTE_(telecommunication)
 
 ![Exhibition](image/exhibition.jpeg)
@@ -702,8 +706,6 @@ class: center, middle, inverse
 - 增加問答系統，像siri那樣可以直接用問的
 
 - 擴增實境書籍推薦
-
-- 自動讀者評論參考、擴增實境書籍導覽與互動等功能
 
 - 增加4G版本
 ---
