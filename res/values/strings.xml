@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">IFM-Navigtor</string>
+    <string name="app_name">IndoorAR</string>
     <string name="action_settings">Settings</string>
+    <string name="search_hint">請輸入書名</string>
+    <string name="search">搜尋</string>
 
 </resources>
